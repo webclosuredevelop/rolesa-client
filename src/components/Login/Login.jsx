@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../../../axios.config'
 import { BrowserRouter as Router, Route, Link, useNavigate } from 'react-router-dom';
+import { useAuth } from "../../provider/authProvider";
 
 
 function Login() {
@@ -11,6 +12,7 @@ function Login() {
     const [birthday, seBirthDay] = useState('1989/01/01');
     const [genre, setGenre] = useState('M');
     const navigateTo = useNavigate();
+    const { setToken } = useAuth();
 
     const handleMenuClick = () => {
         document.querySelector('.header-menu').classList.toggle('expanded-menu');
@@ -43,6 +45,8 @@ function Login() {
           });
           if(response.status == 200) {
         
+            localStorage.setItem("token", JSON.stringify(response.data.access_token))
+            setToken(response.data.access_token);
             axios.interceptors.request.use(
                 (config) => {
                   config.headers.Authorization = 'Bearer ' + response.data.access_token;
@@ -61,7 +65,7 @@ function Login() {
                 });
                 localStorage.setItem("user", JSON.stringify(response.data))
                 if(response.status == 200) {
-                  navigateTo('/')
+                  navigateTo('/dashboard')
                 }
               } catch (error) {
                 alert("Errore di comunicazione con il server")
