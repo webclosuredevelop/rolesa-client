@@ -3713,6 +3713,18 @@ img {
   border-bottom: 0;
 }
 
+.label-floating > input {
+  width : 97%;
+}
+
+textarea {
+  width : 100%;
+}
+
+#vertical-tab-one, #vertical-tab-two, #vertical-tab-three, #vertical-tab-four {
+  width : 80% !important;
+}
+
 .ui-block-title {
   padding: 23px 25px 18px;
   line-height: 1;
@@ -3721,7 +3733,7 @@ img {
   border-top: 1px solid #e6ecf5;
   border-top: 1px solid var(--olympus-border-color);
   display: table;
-  width: 100%;
+  width: 95%;
   position: relative;
   border-radius: 5px 5px 0 0;
 }
