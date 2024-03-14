@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react';
 import LeftSidebar from '../Sidebars/LeftSidebar'
 import RightSidebar from '../Sidebars/RightSidebar'
 import Header from '../Header/Header'
 
 function Dashboard() {
+    const [date, setDate] = useState('');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+
     return (
         <>
             <div className='page-has-left-panels page-has-right-panels'>
@@ -15,55 +19,6 @@ function Dashboard() {
                         <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="ui-block">
                                 <div class="top-header top-header-favorit">
-                                    {/* <div class="top-header-thumb">
-
-                                    <div class="top-header-author">
-                                        <div class="author-thumb">
-                                            <img loading="lazy" src="/assets/img/author-main2.webp" alt="author" width="120" height="120" />
-                                        </div>
-                                        <div class="author-content">
-                                            <a href="#" class="h3 author-name">Green Goo Rock</a>
-                                            <div class="country">Rock Band  |  San Francisco, CA</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="profile-section">
-                                    <div class="row">
-                                        <div class="col col-xl-8 m-auto col-lg-8 col-md-12">
-                                            <ul class="profile-menu">
-                                                <li>
-                                                    <a href="12-FavouritePage.html" class="active">Timeline</a>
-                                                </li>
-                                                <li>
-                                                    <a href="13-FavouritePage-About.html">About</a>
-                                                </li>
-                                                <li>
-                                                    <a href="07-ProfilePage-Photos.html">Photos</a>
-                                                </li>
-                                                <li>
-                                                    <a href="09-ProfilePage-Videos.html">Videos</a>
-                                                </li>
-                                                <li>
-                                                    <a href="14-FavouritePage-Statistics.html">Statistics</a>
-                                                </li>
-                                                <li>
-                                                    <a href="15-FavouritePage-Events.html">Events</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="control-block-button">
-                                        <a href="#" class="btn btn-control bg-primary">
-                                            <svg class="olymp-star-icon"><use xlinkHref="#olymp-star-icon"></use></svg>
-                                        </a>
-
-                                        <a href="#" class="btn btn-control bg-purple">
-                                            <svg class="olymp-chat---messages-icon"><use xlinkHref="#olymp-chat---messages-icon"></use></svg>
-                                        </a>
-
-                                    </div>
-                                </div> */}
                                 </div>
                             </div>
                         </div>
@@ -84,6 +39,69 @@ function Dashboard() {
                     </div>
                 </div>
 
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="ui-block">
+
+                                <div class="ui-block-title ui-block-title-small">
+                                    <h6 class="title">AGGIUNGI EVENTO</h6>
+                                </div>
+                                <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+
+                                <table class="event-item-table">
+                                    <tbody>
+                                        <tr class="event-item">
+                                            <td class="upcoming">
+                                                <div class="date-event">
+
+                                                    <svg class="olymp-small-calendar-icon"><use xlinkHref="#olymp-small-calendar-icon"></use></svg>
+
+                                                    <span class="day">{date}</span>
+                                                    <span class="month">{date}</span>
+                                                </div>
+                                            </td>
+                                            <td class="author">
+                                                <div class="event-author inline-items">
+                                                    <div class="author-thumb">
+                                                        <img loading="lazy" src="/assets/img/avatar66-sm.webp" alt="author" width="34" height="34" />
+                                                    </div>
+                                                    <div class="author-date">
+                                                        <a href="#" class="author-name h6">
+                                                            <input value={title} onChange={(e) => setTitle(e.target.value)}  className="form-control" placeholder="Titolo" type="text" />
+                                                        </a>
+                                                        <time class="published" datetime="2017-03-24T18:18">{date}</time>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="location">
+                                                <div class="place inline-items">
+                                                    <svg class="olymp-add-a-place-icon"><use xlinkHref="#olymp-add-a-place-icon"></use></svg>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="description">
+                                                <p class="description">
+                                                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="form-control" placeholder="Descrizione"></textarea>
+                                                </p>
+                                            </td>
+                                            <td class="users">
+
+                                            </td>
+                                            <td class="add-event">
+                                                <a href="20-CalendarAndEvents-MonthlyCalendar.html" class="btn btn-breez btn-sm">Crea</a>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="container">
                     <div class="row">
@@ -171,15 +189,6 @@ function Dashboard() {
                                         </tr>
                                     </tbody>
                                 </table>
-
-                                <div class="ui-block-title ui-block-title-small">
-                                    <h6 class="title">PAST EVENTS</h6>
-                                </div>
-
-                                <div class="no-past-events">
-                                    <svg class="olymp-month-calendar-icon"><use xlinkHref="#olymp-month-calendar-icon"></use></svg>
-                                    <span>There are no past events <br />to show</span>
-                                </div>
                             </div>
                         </div>
                     </div>
