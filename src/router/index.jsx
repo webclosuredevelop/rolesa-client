@@ -6,7 +6,7 @@ import { RedirectedIfAuthenticated } from "./RedirectedIfAuthenticated";
 import Login from '../components/Login/Login'
 import Dashboard from '../components/Dashboard/Dashboard'
 import Profile from '../components/Profile/Profile'
-import Register from '../components/Register/Register'
+import UpdateProfile from '../components/Profile/UpdateProfile'
 import Logout from '../components/Logout/Logout'
 
 const Routes = () => {
@@ -35,6 +35,10 @@ const Routes = () => {
           element: <Profile />,
         },
         {
+          path: "/update-profile",
+          element: <UpdateProfile />,
+        },
+        {
           path: "/logout",
           element: <Logout/>,
         },
@@ -50,10 +54,6 @@ const routesForNotAuthenticatedOnly = [
         {
             path: "/login",
             element: <Login />,
-            },
-            {
-            path: "/register",
-            element: <Register />,
             },
         ],
     },
