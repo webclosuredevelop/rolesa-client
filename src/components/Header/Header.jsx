@@ -157,7 +157,7 @@ function Header() {
                                 <img alt="author" src="/assets/img/author-page.webp" width="36" height="36" className="avatar" />
                                 <span className="icon-status online"></span>
                                 <div className="more-dropdown more-with-triangle">
-                                    <div className="mCustomScrollbar" data-mcs-theme="dark">
+                                    <div className="mCustomScrollbar ps ps--theme_default ps--active-y" data-mcs-theme="dark">
                                         <div className="ui-block-title ui-block-title-small">
                                             <h6 className="title">Your Account</h6>
                                         </div>

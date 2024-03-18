@@ -24292,9 +24292,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
   }
 }
 
-.mCustomScrollbar {
-  display: none;
-}
+
 a.disabled {
   opacity: 0.4;
 }

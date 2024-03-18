@@ -5,7 +5,6 @@ import axios from "axios";
 import { Tab, TabPanel, Tabs, TabList } from "react-web-tabs";
 import ReactDOM from "react-dom";
 import "react-web-tabs/dist/react-web-tabs.css";
-import "../../../public/assets/css/main.css";
 
 function Register() {
   const user = JSON.parse(localStorage.getItem("user"));
