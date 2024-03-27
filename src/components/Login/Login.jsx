@@ -81,7 +81,8 @@ function Login() {
                 });
                 localStorage.setItem("user", JSON.stringify(response.data))
                 if(response.status == 200) {
-                  navigateTo('/dashboard')
+                    document.location.href = '/dashboard'
+                 // navigateTo('/dashboard')
                 }
               } catch (error) {
                 alert("Errore di comunicazione con il server")
