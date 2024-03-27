@@ -35,7 +35,23 @@ function Login() {
     
         } catch (error) {
         }
-      };
+    };
+    const callGoogleAuth = async () =>{ 
+        try {
+
+            const response = await axios.get('/api/auth/google',{
+
+            });
+            if(response.status == 200) {
+                window.location.href = response.data.url;         
+            }else{
+              alert("Errore di comunicazione con il server")
+            }
+          } catch (error) {
+              alert("Errore di comunicazione con il server")
+          }
+        
+    }
     const handleLogin = async () => { 
         try {
 
@@ -56,7 +72,7 @@ function Login() {
                 alert("Errore di comunicazione con il server")
                   return Promise.reject(error);
                 }
-              );
+            );
 
             try {
 
@@ -75,6 +91,8 @@ function Login() {
             alert("Errore di comunicazione con il server")
         }
       };
+    
+      
 
     return (
         <div className="landing-page">
@@ -250,7 +268,7 @@ function Login() {
                             {/* Nav tabs */}
                             <ul className="nav nav-tabs" id="registration-form-tabs" role="tablist">
                                 <li className="nav-item" role="presentation">
-                                    <a className="nav-link" id="login-tab" data-bs-toggle="tab" href="#login" role="tab"
+                                    <a className="nav-link" id="login-tab" data-bs-toggle="tab" href="#register" role="tab"
                                         aria-controls="login" aria-selected="true">
                                         <svg className="olymp-login-icon">
                                             <use xlinkHref="#olymp-login-icon"></use>
@@ -258,7 +276,7 @@ function Login() {
                                     </a>
                                 </li>
                                 <li className="nav-item" role="presentation">
-                                    <a className="nav-link active" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab"
+                                    <a className="nav-link active" id="profile-tab" data-bs-toggle="tab" href="#login" role="tab"
                                         aria-controls="profile" aria-selected="false">
                                         <svg className="olymp-register-icon">
                                             <use xlinkHref="#olymp-register-icon"></use>
@@ -269,7 +287,7 @@ function Login() {
 
                             {/* Tab panes */}
                             <div className="tab-content" id="registration-form-tabs-content">
-                                <div className="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
+                                <div className="tab-pane fade" id="register" role="tabpanel" aria-labelledby="login-tab">
                                     <div className="title h6">Register to Olympus</div>
                                     <form className="content">
                                         <div className="row">
@@ -328,7 +346,7 @@ function Login() {
                                     </form>
                                 </div>
 
-                                <div className="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div className="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="profile-tab">
                                     <div className="title h6">Login to your Account</div>
                                     <form className="content">
                                         <div className="row">
@@ -357,8 +375,11 @@ function Login() {
                                                 <a href="#" onClick={handleLogin} className="btn btn-lg btn-primary full-width">Login</a>
 
                                                 <div className="or"></div>
-
-                                                <a href="#" className="btn btn-lg bg-facebook full-width btn-icon-left"><svg
+                                                <a class="btn btn-lg  full-width btn-outline-secondary text-dark" href="#" onClick={callGoogleAuth}>
+                                                    <img style={{height:"16px",width:"16px"}}  className="mx-2"src="https://img.icons8.com/color/16/000000/google-logo.png"/>
+                                                    Login with Google
+                                                </a>
+                                                {/* <a href="#" className="btn btn-lg bg-facebook full-width btn-icon-left"><svg
                                                     width="16" height="16">
                                                     <use xlinkHref="#olymp-facebook-icon"></use>
                                                 </svg>Login with Facebook</a>
@@ -366,7 +387,7 @@ function Login() {
                                                 <a href="#" className="btn btn-lg bg-twitter full-width btn-icon-left"><svg
                                                     width="16" height="16">
                                                     <use xlinkHref="#olymp-twitter-icon"></use>
-                                                </svg>Login with Twitter</a>
+                                                </svg>Login with Twitter</a> */}
 
 
                                                 <p>Don’t you have an account? <a href="#">Register Now!</a> it’s really simple

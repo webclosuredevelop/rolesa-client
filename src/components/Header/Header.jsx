@@ -189,7 +189,7 @@ function Header() {
                                             </li>
 
                                             <li>
-                                                <a href="/login">
+                                                <a href="/logout">
                                                     <svg className="olymp-logout-icon">
                                                         <use xlinkHref="#olymp-logout-icon"></use>
                                                     </svg>

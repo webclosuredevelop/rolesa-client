@@ -4,6 +4,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { RedirectedIfAuthenticated } from "./RedirectedIfAuthenticated";
 // All the components
 import Login from '../components/Login/Login'
+import GoogleAuth from '../components/Login/GoogleAuth'
 import Dashboard from '../components/Dashboard/Dashboard'
 import Profile from '../components/Profile/Profile'
 import UpdateProfile from '../components/Profile/UpdateProfile'
@@ -51,9 +52,13 @@ const routesForNotAuthenticatedOnly = [
         path: "/",
         element: <RedirectedIfAuthenticated />, // Wrap the component in ProtectedRoute
         children: [
-        {
+            {
             path: "/login",
             element: <Login />,
+            },
+            {
+              path: "/auth/google/callback",
+              element: <GoogleAuth />,
             },
         ],
     },
